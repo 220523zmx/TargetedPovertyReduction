@@ -7,9 +7,10 @@ public class RandomDate {
 
 	// 返回2007-01-01到2007-03-01的一个随机日期
 	public static void main(String[] args) {
+
 		Date randomDate = randomDate("2005-01-01", "2019-12-31");
 		System.out.println(randomDate.toString());
-		System.out.println(randomDate.); 
+
 	}
 
 	/**
@@ -20,7 +21,7 @@ public class RandomDate {
 	 * @return
 	 */
 
-	private static Date randomDate(String beginDate, String endDate) {
+	public static Date randomDate(String beginDate, String endDate) {
 		try {
 			SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 			Date start = format.parse(beginDate);// 构造开始日期
@@ -29,7 +30,7 @@ public class RandomDate {
 			if (start.getTime() >= end.getTime()) {
 				return null;
 			}
-			long date = random(start.getTime(), end.getTime());
+			long date = random(start.getDate(), end.getDate());
 
 			return new Date(date);
 		} catch (Exception e) {
@@ -38,7 +39,7 @@ public class RandomDate {
 		return null;
 	}
 
-	private static long random(long begin, long end) {
+	public static long random(long begin, long end) {
 		long rtn = begin + (long) (Math.random() * (end - begin));
 		// 如果返回的是开始时间和结束时间，则递归调用本函数查找随机值
 		if (rtn == begin || rtn == end) {
