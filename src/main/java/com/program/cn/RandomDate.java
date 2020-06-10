@@ -7,8 +7,9 @@ public class RandomDate {
 
 	// 返回2007-01-01到2007-03-01的一个随机日期
 	public static void main(String[] args) {
-		Date randomDate = randomDate("2007-01-01", "2007-03-01");
+		Date randomDate = randomDate("2005-01-01", "2019-12-31");
 		System.out.println(randomDate.toString());
+		System.out.println(randomDate.); 
 	}
 
 	/**
