@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精准扶贫系统</title>
+    <script  src="./js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="./css/layui.css">
+</head>
+<body>
+<div class="selectcondition">
+    <select class = "se_education" name="education" lay-verify="">
+        <option value="-1">请选择文化程度</option>
+        <option value="1">小学及以上</option>
+        <option value="0">文盲或半文盲</option>
+    </select>
+    <select class = "se_health" name="health" lay-verify="">
+        <option value="-1">请选择健康程度</option>
+        <option value="0">健康</option>
+        <option value="1">慢性病</option>
+        <option value="2">残疾</option>
+        <option value="3">瘫痪</option>
+    </select>
+    <select class = "se_labor" name="labor" lay-verify="">
+        <option value="-1">请选择劳动能力</option>
+        <option value="0">无劳动力</option>
+        <option value="1">普通劳动力</option>
+        <option value="2">丧失劳动力</option>
+    </select>
+    <select class = "se_rural" name="rural" lay-verify="">
+        <option value="-1">请选择是否参加农合</option>
+        <option value="0">未参</option>
+        <option value="1">参</option>
+    </select>
+    <button type="button" class="layui-btn submit">提交预测</button>
+</div>
+<script src="./js/index.js"></script>
+
+</body>
+</html>
