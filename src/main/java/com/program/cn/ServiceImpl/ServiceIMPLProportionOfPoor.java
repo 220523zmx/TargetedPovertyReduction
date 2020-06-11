@@ -1,5 +1,6 @@
 package com.program.cn.ServiceImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.program.cn.Service.ServiceProportionOfPoor;
 import com.program.cn.dao.mapper.*;
+import com.program.cn.model.arearesult.Arearesult;
+import com.program.cn.model.arearesult.ArearesultExample;
 import com.program.cn.model.conditions.ConditionsExample;
 import com.program.cn.model.information.Information;
 
@@ -39,15 +42,24 @@ public class ServiceIMPLProportionOfPoor implements ServiceProportionOfPoor {
 	}
 
 	@Override
-	public List<String> returncity() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Arearesult> returncity() {
+		ArearesultExample arearesultExample = new ArearesultExample(); 
+		ArearesultExample.Criteria criteria = arearesultExample.createCriteria();
+		arearesultExample.setDistinct(true);
+		arearesultExample.setOrderByClause("area"); 
+		List<Arearesult> arearesultlist= arearesultMapper.selectByExample(arearesultExample);
+		
+		return arearesultlist;
 	}
 
 	@Override
-	public long countfromcity() {
-		// TODO Auto-generated method stub
-		return 0;
+	public long countfromcity(String area,String poor) {
+		ArearesultExample arearesultExample = new ArearesultExample(); 
+		ArearesultExample.Criteria criteria = arearesultExample.createCriteria();
+		criteria.andAreaEqualTo(area);
+		criteria.andResultEqualTo(poor);
+		long count = arearesultMapper.countByExample(arearesultExample);
+		return count;
 	}
 
 	@Override

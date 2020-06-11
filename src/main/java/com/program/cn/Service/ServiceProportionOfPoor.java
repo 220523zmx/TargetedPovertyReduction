@@ -2,6 +2,7 @@ package com.program.cn.Service;
 
 import java.util.List;
 
+import com.program.cn.model.arearesult.Arearesult;
 import com.program.cn.model.information.Information;
 
 public interface ServiceProportionOfPoor {
@@ -10,9 +11,9 @@ public interface ServiceProportionOfPoor {
 
 	public long countofrich();
 
-	public List<String> returncity();
+	public List<Arearesult> returncity();
 
-	public long countfromcity();
+	public long countfromcity(String area,String poor);
 
 	public List<String> returntime();
 
