@@ -17,17 +17,17 @@ import com.program.cn.model.information.Information;
 @Service
 public class ServiceIMPLProportionOfPoor implements ServiceProportionOfPoor {
 	@Resource
-	ConditionsMapper conditionsMapper;
+	ConditionsMapper conditionsMapper;//conditions表sql语句类声明
 	@Resource
-	InformationMapper informationMapper;
+	InformationMapper informationMapper;//information表sql语句类声明
 	@Resource
-	ArearesultMapper arearesultMapper;
+	ArearesultMapper arearesultMapper;//arearesult表sql语句类声明
 
 	@Override
 	public long countofpoor() {
 		ConditionsExample conditionsExample = new ConditionsExample();
 		ConditionsExample.Criteria criteria = conditionsExample.createCriteria();
-		criteria.andResultEqualTo("0");
+		criteria.andResultEqualTo("0");//贫困户属性
 		long count = conditionsMapper.countByExample(conditionsExample);
 		return count;
 	}
@@ -36,7 +36,7 @@ public class ServiceIMPLProportionOfPoor implements ServiceProportionOfPoor {
 	public long countofrich() {
 		ConditionsExample conditionsExample = new ConditionsExample();
 		ConditionsExample.Criteria criteria = conditionsExample.createCriteria();
-		criteria.andResultEqualTo("1");
+		criteria.andResultEqualTo("1");//脱贫户属性
 		long count = conditionsMapper.countByExample(conditionsExample);
 		return count;
 	}
@@ -45,8 +45,8 @@ public class ServiceIMPLProportionOfPoor implements ServiceProportionOfPoor {
 	public List<Arearesult> returncity() {
 		ArearesultExample arearesultExample = new ArearesultExample(); 
 		ArearesultExample.Criteria criteria = arearesultExample.createCriteria();
-		arearesultExample.setDistinct(true);
-		arearesultExample.setOrderByClause("area"); 
+		arearesultExample.setDistinct(true);//查询结果去重（无视是否贫困脱贫数量）
+		arearesultExample.setOrderByClause("area"); //查询结果按照地区分组
 		List<Arearesult> arearesultlist= arearesultMapper.selectByExample(arearesultExample);
 		
 		return arearesultlist;
@@ -56,8 +56,8 @@ public class ServiceIMPLProportionOfPoor implements ServiceProportionOfPoor {
 	public long countfromcity(String area,String poor) {
 		ArearesultExample arearesultExample = new ArearesultExample(); 
 		ArearesultExample.Criteria criteria = arearesultExample.createCriteria();
-		criteria.andAreaEqualTo(area);
-		criteria.andResultEqualTo(poor);
+		criteria.andAreaEqualTo(area);//当前地区
+		criteria.andResultEqualTo(poor);//贫困/脱贫
 		long count = arearesultMapper.countByExample(arearesultExample);
 		return count;
 	}

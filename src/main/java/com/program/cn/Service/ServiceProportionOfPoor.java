@@ -7,15 +7,15 @@ import com.program.cn.model.information.Information;
 
 public interface ServiceProportionOfPoor {
 
-	public long countofpoor();
+	public long countofpoor();//conditions表统计贫困人数
 
-	public long countofrich();
+	public long countofrich();//conditions表统计脱贫人数
 
-	public List<Arearesult> returncity();
+	public List<Arearesult> returncity();//arearesult表返回地区名
 
-	public long countfromcity(String area,String poor);
+	public long countfromcity(String area,String poor);//arearesult表按照地区统计脱贫或贫困人数
 
-	public List<String> returntime();
+	public List<String> returntime();//
 
 	public List<Information> returnfromtie();
 }

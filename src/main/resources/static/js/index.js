@@ -89,23 +89,93 @@ function getconditionbytime() {
 		type : 'GET',
 		success : function(data) {
 			console.log("成功", data);
-			//main2(data)
-		},
-		error : function(data) {
-			console.log("失败", data);
-		}
-	});
-}
-function getresultbyarea() {
-	$.ajax({
-		url : "./survey/getresultbyarea",
-		type : 'GET',
-		success : function(data) {
-			console.log("成功", data);
 			//main3(data)
 		},
 		error : function(data) {
 			console.log("失败", data);
 		}
 	});
+
+}
+
+function getresultbyarea() {
+	$.ajax({
+		url : "./survey/getresultbyarea",
+		type : 'GET',
+		success : function(data) {
+			console.log("成功", data);
+			main2_1(data)
+			main2_2(data)
+			main2_3(data)
+		},
+		error : function(data) {
+			console.log("失败", data);
+		}
+	});
+}
+function main2_1(data) {
+	var list = data.num1
+	console.log(list)
+	var myChart = echarts.init(document.getElementById('main2_1'));
+	option = {
+		legend : {},
+		tooltip : {},
+		dataset : {
+			source :list
+		},
+		 xAxis: {type: 'category'},
+		    yAxis: {},
+		    // Declare several bar series, each will be mapped
+		    // to a column of dataset.source by default.
+		    series: [
+		        {type: 'bar'},
+		        {type: 'bar'}
+		    ]
+		
+	};
+	myChart.setOption(option);
+}
+function main2_2(data) {
+	var list = data.num2
+	console.log(list)
+	var myChart = echarts.init(document.getElementById('main2_2'));
+	option = {
+		legend : {},
+		tooltip : {},
+		dataset : {
+			source :list
+		},
+		 xAxis: {type: 'category'},
+		    yAxis: {},
+		    // Declare several bar series, each will be mapped
+		    // to a column of dataset.source by default.
+		    series: [
+		        {type: 'bar'},
+		        {type: 'bar'}
+		    ]
+		
+	};
+	myChart.setOption(option);
+}
+function main2_3(data) {
+	var list = data.num3
+	console.log(list)
+	var myChart = echarts.init(document.getElementById('main2_3'));
+	option = {
+		legend : {},
+		tooltip : {},
+		dataset : {
+			source :list
+		},
+		 xAxis: {type: 'category'},
+		    yAxis: {},
+		    // Declare several bar series, each will be mapped
+		    // to a column of dataset.source by default.
+		    series: [
+		        {type: 'bar'},
+		        {type: 'bar'}
+		    ]
+		
+	};
+	myChart.setOption(option);
 }
