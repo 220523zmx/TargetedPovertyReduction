@@ -37,7 +37,57 @@ public class ControllerProportionOfPoor {
 	@RequestMapping(value = "/getconditionbytime", method = RequestMethod.GET) // 每年的贫困户特征统计
 	public Map<String, Object> getconditionbytime() {
 		Map<String, Object> map = new HashMap<String, Object>();//
-		System.out.println("1");
+		List<String> list = proportionOfPoor.bubbleSort(proportionOfPoor.returntime());
+		List<String> alllist = new ArrayList<String>();
+		List<Object> listrow = new ArrayList<Object>();
+		for (int i = 0; i < 4; i++) {
+			alllist.add(i, list.get(i));
+		}
+		map.put("timelist", alllist);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.add(i, proportionOfPoor.countofhealth_0(alllist.get(i)));
+		}
+		map.put("health_0", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countofhealth_1(alllist.get(i)));
+		}
+		map.put("health_1", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countofhealth_2(alllist.get(i)));
+		}
+		map.put("health_2", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countofhealth_3(alllist.get(i)));
+		}
+		map.put("health_3", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countoflabor_skills_0(alllist.get(i)));
+		}
+		map.put("labor_skills_0", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countoflabor_skills_1(alllist.get(i)));
+		}
+		map.put("labor_skills_1", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countoflabor_skills_2(alllist.get(i)));
+		}
+		map.put("labor_skills_2", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countoflevel_of_education_0(alllist.get(i)));
+		}
+		map.put("level_of_education_0", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countoflevel_of_education_1(alllist.get(i)));
+		}
+		map.put("level_of_education_1", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countofrural_cooperative_0(alllist.get(i)));
+		}
+		map.put("rural_cooperative_0", listrow);
+		for (int i = 0; i < alllist.size(); i++) {
+			listrow.set(i, proportionOfPoor.countofrural_cooperative_1(alllist.get(i)));
+		}
+		map.put("rural_cooperative_1", listrow);
 		return map;//
 	}
 

@@ -187,12 +187,7 @@
   </update>
   
   
-  <insert id="insertno" parameterType="com.program.cn.model.information.Information">
-    insert into information (level_of_education, health, labor_skills, 
-      rural_cooperative, result, date
-      )
-    values (#{levelOfEducation}, #{health}, #{laborSkills}, 
-      #{ruralCooperative}, #{result}, #{date}
-      )
-  </insert>
+  <select id="selectdistincttime"  resultType="String"><!-- resultMap="java.util.List" -->
+    select distinct date from information group by date
+  </select>
 </mapper>

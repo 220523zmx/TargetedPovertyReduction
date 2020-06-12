@@ -37,7 +37,8 @@ public class RandomData {
 			int ran2 = (int) (Math.random()*(4-0)+0); 
 			int ran3 = (int) (Math.random()*(3-0)+0); 
 			int ran4 = (int) (Math.random()*(2-0)+0); 
-			int ran5 = (int) (Math.random()*(2-0)+0); 
+			int ran5 = (int) (Math.random()*(2-0)+0);
+			int ran6 = (int) (Math.random()*(2021-2010)+2010);
 			//System.out.println("year "+date+" 1_"+s1[ran1]+" 2_"+s2[ran2]+" 3_"+s3[ran3]+" 4_"+s4[ran4]+" 5_"+s5[ran5]);
 			in.setDate(format.format(date));
 			in.setHealth(s2[ran2]);

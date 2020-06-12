@@ -6,21 +6,22 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
 @Mapper
 public interface InformationMapper {
-    long countByExample(InformationExample example);
+	long countByExample(InformationExample example);
 
-    int deleteByExample(InformationExample example);
+	int deleteByExample(InformationExample example);
 
-    int insert(Information record);
-    
-    int insertno(Information record);
+	int insert(Information record);
 
-    int insertSelective(Information record);
+	int insertSelective(Information record);
 
-    List<Information> selectByExample(InformationExample example);
+	List<Information> selectByExample(InformationExample example);
 
-    int updateByExampleSelective(@Param("record") Information record, @Param("example") InformationExample example);
+	List<String> selectdistincttime();
 
-    int updateByExample(@Param("record") Information record, @Param("example") InformationExample example);
+	int updateByExampleSelective(@Param("record") Information record, @Param("example") InformationExample example);
+
+	int updateByExample(@Param("record") Information record, @Param("example") InformationExample example);
 }

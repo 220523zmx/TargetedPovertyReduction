@@ -140,10 +140,10 @@ public class RandomValueUtil {
 		// SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String[] s6= {"北京","天津","上海","重庆","河北","山西","辽宁","吉林","黑龙江","江苏","浙江","安徽","福建","江西","山东","河南","湖北","湖南","广东","河南","四川","贵州","云南","陕西","甘肃","青海","台湾","内蒙古","广西","西藏","宁夏","新疆","香港","澳门"};
 		
-		String file = "D:\\test\\b.txt";
+		String file = "D:\\test\\a.csv";
 		try {
 			FileWriter writer = new FileWriter(file);
-			for (int i = 0; i < 100000; i++) {
+			for (int i = 0; i < 5000; i++) {
 //        	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 				RandomData re = new RandomData();
 				// Conditions in = new Conditions();
@@ -154,10 +154,11 @@ public class RandomValueUtil {
 //        			int ran3 = (int) (Math.random()*(3-0)+0); 
         			int ran4 = (int) (Math.random()*(2-0)+0); 
         			int ran5 = (int) (Math.random()*(34-0)+0); 
+        			//int ran6 = (int) (Math.random()*(2021-2010)+2010);
 				// System.out.println("year "+date+" 1_"+s1[ran1]+" 2_"+s2[ran2]+"
 				// 3_"+s3[ran3]+" 4_"+s4[ran4]+" 5_"+s5[ran5]);
 
-				// writer.write(s1[ran1]+"\t"+s2[ran2]+"\t"+s3[ran3]+"\t"+s4[ran4]+"\t"+s5[ran5]+"\t"+format.format(date)+"\n");//
+//				 writer.write(s1[ran1]+"\t"+s2[ran2]+"\t"+s3[ran3]+"\t"+s4[ran4]+"\t"+s5[ran5]+"\t"+ran6+"\n");//
 				// д����
         			writer.write(s5[ran4]+"\t"+s6[ran5]+"\n");
 			}
